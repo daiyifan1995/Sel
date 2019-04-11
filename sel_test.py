@@ -22,13 +22,15 @@ for i in range(10):
     try:
         elements = WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.CLASS_NAME, "js_song")))
+        # actions = ActionChains(driver)
+        # actions.move_to_element_with_offset(elements[i], 10,10)
+        # actions.click()
+        # actions.perform()
+        # print(driver.title)
+        # driver.back()
+        print(driver.find_element_by_class_name("data__desc_txt").text)
 
-        actions = ActionChains(driver)
-        actions.move_to_element_with_offset(elements[i], 10,10)
-        actions.click()
-        actions.perform()
-        print(driver.title)
-        driver.back()
+
     except exceptions.StaleElementReferenceException as e:
         print(e)
 
